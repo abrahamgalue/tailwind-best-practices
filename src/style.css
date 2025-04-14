@@ -1,84 +1,106 @@
-@import "tailwindcss";
+@import 'tailwindcss';
+
+@theme {
+  --color-primary: #00bcff;
+  --color-primary-100: #74d4ff;
+}
 
 :root {
-	font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-	line-height: 1.5;
-	font-weight: 400;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
 
-	color: #222;
-	background-color: #ffffff;
+  color: #222;
+  background-color: #101828;
 
-	font-synthesis: none;
-	text-rendering: optimizeLegibility;
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-	-webkit-text-size-adjust: 100%;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-	margin: 0;
-	display: flex;
-	align-items: center;
-	min-height: 100vh;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
 }
 
 #app {
-	max-width: 1280px;
-	margin: 0 auto;
-	text-align: center;
+  max-width: 1280px;
+  margin: 0 auto;
+  text-align: center;
 }
 
-img {
-	margin-bottom: 1.5rem;
+/* Tailwind Elements */
+
+.main-title {
+  @apply mb-10 text-5xl;
 }
 
-img:hover {
-	filter: drop-shadow(0 0 2em #673ab8aa);
+.title {
+  @apply mb-4;
 }
 
-section {
-	margin-top: 5rem;
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	column-gap: 1.5rem;
+.main-title,
+.title {
+  @apply font-bold text-white;
 }
 
-.resource {
-	padding: 0.75rem 1.5rem;
-	border-radius: 0.5rem;
-	text-align: left;
-	text-decoration: none;
-	color: #222;
-	background-color: #f1f1f1;
-	border: 1px solid transparent;
+.grid-container {
+  @apply grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4;
 }
 
-.resource:hover {
-	border: 1px solid #000;
-	box-shadow: 0 25px 50px -12px #673ab888;
+.subtitle {
+  @apply mb-3 text-lg text-gray-300;
+}
+
+.description {
+  @apply text-sm text-gray-400;
+}
+
+.page-container {
+  @apply min-h-screen bg-gray-900 px-4 py-12 sm:px-6 lg:px-8;
+}
+
+.page-content {
+  @apply mx-auto max-w-7xl;
+}
+
+.container {
+  @apply text-primary;
+}
+
+.card {
+  @apply overflow-hidden rounded-lg bg-gray-800 shadow-lg transition-transform duration-300 hover:scale-105;
+}
+
+.card-image-container {
+  @apply relative h-48 overflow-hidden;
+}
+
+.card-overlay {
+  @apply absolute inset-0 flex items-center justify-center bg-black/40 opacity-0 transition-opacity duration-300 group-hover:opacity-100;
+}
+
+.card-icon {
+  @apply text-4xl;
+}
+
+.card-content {
+  @apply p-4;
 }
 
 @media (max-width: 639px) {
-	#app {
-		margin: 2rem;
-	}
-	section {
-		margin-top: 5rem;
-		grid-template-columns: 1fr;
-		row-gap: 1rem;
-	}
+  #app {
+    margin: 2rem;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
-	:root {
-		color: #ccc;
-		background-color: #1a1a1a;
-	}
-	.resource {
-		color: #ccc;
-		background-color: #161616;
-	}
-	.resource:hover {
-		border: 1px solid #bbb;
-	}
+  :root {
+    color: #ccc;
+    background-color: 101828;
+  }
 }

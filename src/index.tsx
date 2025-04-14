@@ -1,51 +1,63 @@
 import { hydrate, prerender as ssr } from 'preact-iso'
 
-import preactLogo from './assets/preact.svg'
 import './style.css'
+import { VideoGame } from './models/video-game'
+import VideoGameGrid from './VideoGames/VideoGameGrid'
+
+const games: VideoGame[] = [
+  {
+    id: 1,
+    title: 'Cyber Odyssey 2077',
+    subtitle: 'Future Reality RPG',
+    description:
+      'Immerse yourself in a dystopian future where choices shape your destiny',
+    image: 'https://images.unsplash.com/photo-1542751371-adc38448a05e',
+  },
+  {
+    id: 2,
+    title: 'Medieval Legends',
+    subtitle: 'Fantasy Adventure',
+    description:
+      'Explore vast kingdoms and battle mythical creatures in this epic journey',
+    image: 'https://images.unsplash.com/photo-1580234811497-9df7fd2f357e',
+  },
+  {
+    id: 3,
+    title: 'Space Warriors',
+    subtitle: 'Sci-Fi Strategy',
+    description:
+      'Command your fleet and conquer the galaxy in this strategic space warfare',
+    image: 'https://images.unsplash.com/photo-1614732414444-096e5f1122d5',
+  },
+  {
+    id: 4,
+    title: 'Racing Evolution',
+    subtitle: 'High-Speed Action',
+    description:
+      'Experience ultimate racing thrills with next-gen graphics and physics',
+    image: 'https://images.unsplash.com/photo-1547394765-185e1e68f34e',
+  },
+  {
+    id: 5,
+    title: 'Ninja Chronicles',
+    subtitle: 'Action Adventure',
+    description: 'Master ancient arts and defend your clan in feudal Japan',
+    image: 'https://images.unsplash.com/photo-1511512578047-dfb367046420',
+  },
+  {
+    id: 6,
+    title: 'Monster Hunter X',
+    subtitle: 'Action RPG',
+    description:
+      'Track and hunt magnificent creatures in a breathtaking open world',
+    image: 'https://images.unsplash.com/photo-1552820728-8b83bb6b773f',
+  },
+]
+
+// layout > display > spacing > border > color > text
 
 export function App() {
-  return (
-    <div>
-      <a href='https://preactjs.com' target='_blank'>
-        <img
-          className='m-auto'
-          src={preactLogo}
-          alt='Preact logo'
-          height='160'
-          width='160'
-        />
-      </a>
-      <h1 className='text-2xl text-sky-600'>
-        Get Started building Vite-powered Preact Apps{' '}
-      </h1>
-      <section>
-        <Resource
-          title='Learn Preact'
-          description="If you're new to Preact, try the interactive tutorial to learn important concepts"
-          href='https://preactjs.com/tutorial'
-        />
-        <Resource
-          title='Differences to React'
-          description="If you're coming from React, you may want to check out our docs to see where Preact differs"
-          href='https://preactjs.com/guide/v10/differences-to-react'
-        />
-        <Resource
-          title='Learn Vite'
-          description='To learn more about Vite and how you can customize it to fit your needs, take a look at their excellent documentation'
-          href='https://vitejs.dev'
-        />
-      </section>
-    </div>
-  )
-}
-
-function Resource(props) {
-  return (
-    <a href={props.href} target='_blank' class='resource'>
-      <h2>{props.title}</h2>
-      <p>{props.description}</p>
-    </a>
-  )
+  return <VideoGameGrid games={games} />
 }
 
 if (typeof window !== 'undefined') {
